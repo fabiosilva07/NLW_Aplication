@@ -1,0 +1,159 @@
+body{
+    background-color: var(--line-in-white);
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.header .headerContent{
+    margin-bottom: 5rem;
+}
+
+.main{
+    width: 100%;
+    max-width: 74rem;
+    margin: -1.8rem auto 3.2rem;
+    padding-top: 6.4rem;
+    
+    background-color: var(--color-box-base);
+    border-radius: .4rem;
+}
+
+.main fieldset{
+    padding: 0 2.4rem;
+    border: none;
+}
+
+.main fieldset legend{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--color-line-in-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font: 700 2rem Archivo;
+    color: var(--color-text-title);
+}
+
+.main fieldset + fieldset{
+    margin-top: 6rem;
+}
+
+.main .input-block + .input-block,
+.main .input-block + textarea,
+.main .select-block + .input-block{
+    margin-top: 2rem;
+}
+
+.main fieldset button{
+    background: none;
+    border: 0;
+
+    color: var(--color-primary);
+
+    font: 700 1.6rem Archivo;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.main fieldset button:hover{
+    transform: translateY(-5px);
+    color: var(--color-primary-dark);
+}
+
+.main .schedule-item + .schedule-item{
+    margin-top: 3rem;
+    padding-top: 3rem;
+
+    border-top: 1px solid var(--color-line-in-white);
+}
+
+.main footer{
+    padding: 4rem 2.4rem;
+    margin-top: 6.4rem;
+
+    background-color: var(--color-box-footer);
+    border-top: 1px solid var(--color-line-in-white);
+}
+
+.main footer p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-text-complement);
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.main footer p img{
+    margin-right: 2rem;
+}
+
+.main footer button{
+    width: 100%;
+    height: 5rem;
+    margin-top: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: .8rem;
+    text-decoration: none;
+    font: 700 1.6rem Archivo;
+
+    transition: 0.2s;
+}
+
+.main footer button:hover{
+    background-color: var(--color-secondary-dark);
+}
+
+
+@media(min-width: 700px){
+    .container{
+        max-width: 100%;
+    }
+
+    .header .headerContent{
+        margin-bottom: 0;
+    }
+
+    .main fieldset{
+        padding: 0 64px;
+    }
+
+    .schedule-item{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        column-gap: 1.6rem;
+    }
+
+    .schedule-item .input-block + .input-block,
+    .schedule-item .select-block + .input-block{
+        margin-top: 0;
+    }
+
+    .main footer{
+        padding: 40px 64px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .main footer button{
+        margin-top: 0;
+        width: 200px;
+    }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8257E5">
+
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials/forms.css">
+    <link rel="stylesheet" type="text/css" href="../css/partials/cadastro.css">
+
+
+    <title>NLW Aplication - Estudar</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="menuBar">
+                <a href="/"><img src="../images/icons/back.svg" /></a>
+                <a href="/"><img src="../images/logo.svg" /></a>
+            </div>
+            <div class="headerContent">
+                <strong>Que Incrivel que vc quer dar aulas!</strong>
+                <p>O primeiro passo é preencer este formulario</p>
+            </div>
+        </header>
+        <main class="main">
+            <form action="/saveCadastro" id="cadastro" method="POST">
+                <fieldset>
+                    <legend>Seus Dados</legend>
+                    <div class="input-block">
+                        <label for="name">Nome Completo</label>
+                        <input name="name" id="name" type="text" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="avatar">Link da sua Foto<small>(Começe com https://)</small></label>
+                        <input name="avatar" id="avatar" type="url" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="whatsapp">WhatsApp<small>(Somente números)</small></label>
+                        <input name="whatsapp" id="whatsapp" type="number" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio" id="bio" required></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Sobre a aula</legend>
+                    <div class="select-block">
+                        <label for="subject">Matéria</label>
+                        <select name="subject" id="subject" required>
+                            <option value="">Selecione uma opção</option>
+                            {% for subject in subjects %}
+                                <option value="{{loop.index}}">
+                                    {{subject}}
+                                </option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="input-block">
+                        <label for="cost">Custo da sua hora/aula<small>(R$)</small></label>
+                        <input name="cost" id="cost" type="number" required>
+                    </div>
+                </fieldset>
+                <fieldset id="schedule-items">
+                    <legend>
+                        Horario disponiveis
+                        <button type="button" id="add-time">+ Novo horario</button>
+                    </legend>
+                    <div class="schedule-item">
+                        <div class="select-block">
+                            <label for="weekday">Dia da Semana</label>
+                            <select name="weekday[]" required>
+                                <option value=""> Selecione uma opção</option>
+                                {% for weekday in weekdays %}
+                                    <option value="{{loop.index0}}">
+                                        {{weekday}}
+                                    </option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="input-block">
+                            <label for="time_from">Das</label>
+                            <input name="time_from[]" type="time">
+                        </div>
+                        <div class="input-block">
+                            <label for="time_from">Até</label>
+                            <input name="time_to[]" type="time">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <footer>
+                <p>
+                    <img src="../images/icons/warning.svg" alt="Aviso importante">
+                    Importante! <br /> Preencha todos os dados
+                </p>
+                <button type="submit" form="cadastro"> Cadastrar</button>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../js/addField.js"></script>
+</body>
+
+</html>
